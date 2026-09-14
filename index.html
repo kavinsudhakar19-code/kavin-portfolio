@@ -7,57 +7,58 @@
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@700;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-body{background:#000;overflow-x:hidden}
-/* COVER */
+html{scroll-behavior:smooth}
+body{background:#000;overflow-x:hidden;overflow-y:auto}
+a{color:inherit;text-decoration:none}
 #cover{position:fixed;inset:0;z-index:99;background:#020a14;background-image:linear-gradient(rgba(0,180,255,0.12) 1px, transparent 1px),linear-gradient(90deg, rgba(0,180,255,0.12) 1px, transparent 1px);background-size:60px 60px,60px 60px;display:flex;flex-direction:column;overflow-y:auto;transition:transform .8s ease}
-#cover.hide{transform:translateY(-100%)}
-.topbar{display:flex;justify-content:space-between;align-items:center;margin:12px 20px;padding:10px 16px;border:1px solid rgba(90,216,255,.2);background:rgba(0,0,0,.5)}
-.logo{color:#5ad8ff;font-weight:700;letter-spacing:2px;display:flex;gap:8px;align-items:center}
-.nav{display:flex;gap:18px;font-size:12px;color:#8ab4d0;align-items:center}
-.nav .active{color:#5ad8ff;border-bottom:2px solid #5ad8ff}
-.cert{border:1px solid #5ad8ff;border-radius:20px;padding:3px 10px;font-size:10px;color:#5ad8ff}
-.hero{flex:1;display:grid;grid-template-columns:1.4fr .8fr;gap:20px;padding:24px 36px}
-.badge{display:inline-block;border:1px solid #5ad8ff;border-radius:20px;padding:5px 12px;font-size:11px;color:#7dd8ff;background:rgba(0,0,0,.4);margin-bottom:16px}
-.name-row{display:flex;align-items:center;gap:16px}
-.name{font-size:clamp(48px,9vw,100px);font-weight:800;color:#fff;letter-spacing:2px;line-height:.9}
-.photo{width:100px;height:125px;border-radius:12px;overflow:hidden;border:2px solid #5ad8ff;box-shadow:0 0 20px rgba(90,216,255,.6);transform:rotate(2deg);background:#000}
-.photo img{width:100%;height:100%;object-fit:cover}
-.tags{display:flex;gap:12px;flex-wrap:wrap;margin:16px 0;color:#5ad8ff;font-size:12px;font-weight:600}
-.desc{color:#b8d0e0;font-size:14px;max-width:500px;line-height:1.5;margin-bottom:20px}
-.btn{display:inline-block;padding:12px 26px;font-size:24px;font-weight:800;color:#ff0a0a;background:rgba(0,0,0,.6);border:2px solid #ff0a0a;border-radius:10px;box-shadow:0 0 20px #ff0a0a;cursor:pointer;animation:pulse 1.5s infinite}
-@keyframes pulse{0%,100%{box-shadow:0 0 15px #ff0a0a}50%{box-shadow:0 0 30px #ff0a0a}}
-.core{border:1px solid rgba(90,216,255,.2);background:rgba(0,10,30,.6);border-radius:14px;padding:20px;min-height:360px;position:relative}
-.core h4{color:#5ad8ff;font-size:11px;letter-spacing:2px;margin-bottom:20px}
-.core li{list-style:none;display:flex;gap:8px;align-items:center;margin-bottom:18px;font-weight:600;color:#e6f1ff}
+#cover.hide{transform:translateY(-100%);pointer-events:none}
+.topbar{display:flex;justify-content:space-between;align-items:center;margin:10px 14px;padding:10px 14px;border:1px solid rgba(90,216,255,.18);background:rgba(0,0,0,.55);border-radius:8px}
+.logo-single{display:flex;align-items:center;gap:8px;color:#5ad8ff;font-weight:700;letter-spacing:2px;font-size:16px;white-space:nowrap}
+.nav-clean{display:flex;gap:16px;align-items:center;font-size:11px;color:#8ab4d0;white-space:nowrap}
+.nav-clean .active{color:#5ad8ff;border-bottom:2px solid #5ad8ff;padding-bottom:2px}
+.cert-small{border:1px solid #5ad8ff;border-radius:20px;padding:3px 9px;font-size:9px;color:#5ad8ff}
+.hero{flex:1;display:grid;grid-template-columns:1.4fr .8fr;gap:20px;padding:20px 28px}
+.badge{display:inline-block;border:1px solid rgba(90,216,255,.4);border-radius:20px;padding:5px 12px;font-size:11px;color:#7dd8ff;background:rgba(0,0,0,.4);margin-bottom:14px}
+.name-row{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.name{font-size:clamp(48px,8vw,96px);font-weight:800;color:#fff;letter-spacing:2px;line-height:.9;font-family:'Space Grotesk'}
+.photo{width:96px;height:118px;border-radius:12px;overflow:hidden;border:2px solid #5ad8ff;box-shadow:0 0 18px rgba(90,216,255,.6);background:#000}
+.photo img{width:100%;height:100%;object-fit:cover;object-position:top}
+.tags{display:flex;gap:10px;flex-wrap:wrap;margin:14px 0;color:#5ad8ff;font-size:11px;font-weight:700}
+.desc{color:#b8d0e0;font-size:13px;max-width:500px;line-height:1.5;margin-bottom:18px}
+.btn{display:inline-block;padding:12px 24px;font-size:22px;font-weight:800;color:#ff1a1a;background:rgba(0,0,0,.7);border:2px solid #ff1a1a;border-radius:10px;box-shadow:0 0 18px #ff1a1a;cursor:pointer}
+.core{border:1px solid rgba(90,216,255,.18);background:rgba(0,10,30,.65);border-radius:14px;padding:18px;min-height:340px}
+.core h4{color:#5ad8ff;font-size:11px;letter-spacing:2px;margin-bottom:18px}
+.core li{list-style:none;display:flex;gap:8px;align-items:center;margin-bottom:16px;font-weight:600;color:#e6f1ff;font-size:15px}
 .core li::before{content:'';width:7px;height:7px;background:#5ad8ff;border-radius:50%;box-shadow:0 0 6px #5ad8ff}
-/* MAIN - VIDEO STYLE */
-#main{background:#050508;min-height:100vh;padding:12px 10px 30px;font-family:'JetBrains Mono',monospace}
-.m-head{display:flex;justify-content:space-between;font-size:11px;color:#8ab4d0;border-bottom:1px solid #1a1a1a;padding:6px 0;margin-bottom:10px}
+#main{background:#050508;min-height:100vh;padding:12px 12px 60px;font-family:'JetBrains Mono',monospace;overflow-y:auto}
+.m-head{display:flex;justify-content:space-between;font-size:10px;color:#8ab4d0;border-bottom:1px solid #1a1a1a;padding:6px 0;margin-bottom:10px}
 .m-badge{border:1px solid #2a4a6a;border-radius:20px;padding:4px 10px;font-size:10px;color:#7dd8ff;display:inline-block;margin-bottom:10px}
-.big{font-family:'Space Grotesk';font-size:38px;font-weight:800;color:#fff;letter-spacing:3px}
+.big{font-family:'Space Grotesk';font-size:36px;font-weight:800;color:#fff;letter-spacing:3px}
 .m-tags{color:#5ad8ff;font-size:10px;margin:6px 0}
 .m-desc{color:#7a8a9a;font-size:11px;line-height:1.5;max-width:340px;margin-bottom:14px}
-.title{color:#5ad8ff;font-size:13px;font-weight:700;margin:16px 0 10px;letter-spacing:1px}
+.title{color:#5ad8ff;font-size:13px;font-weight:700;margin:18px 0 10px}
 .card{background:#0a0a12;border:1px solid #1e2e42;border-radius:10px;padding:12px 14px;margin-bottom:8px}
-.perc{color:#5ad8ff;font-size:22px;font-weight:800}
+.card.link{cursor:pointer}.card.link:hover{border-color:#5ad8ff;background:#0f1a2a}
+.perc{color:#5ad8ff;font-size:21px;font-weight:800}
 .lab{color:#fff;font-size:12px;font-weight:700}
-.sma{color:#6e7e8e;font-size:11px;line-height:1.4}
+.sma{color:#6e7e8e;font-size:11px;line-height:1.4;word-break:break-all}
 .done{color:#00e5a0;font-size:9px;margin-top:4px}
-@media(max-width:800px){.hero{grid-template-columns:1fr;padding:14px}.name{font-size:52px}.photo{width:84px;height:105px}.btn{width:100%;text-align:center;font-size:20px}.topbar{margin:6px;padding:8px 10px}.nav{gap:10px;font-size:10px}}
+.link-label{color:#5ad8ff;font-size:12px;font-weight:700}
+@media(max-width:800px){.hero{grid-template-columns:1fr;padding:12px}.name{font-size:48px}.photo{width:82px;height:100px}.btn{width:100%;text-align:center;font-size:19px}.topbar{margin:6px;padding:8px 10px}.nav-clean{gap:8px;font-size:9px}.cert-small{display:none}#main{padding-bottom:90px}}
 </style>
 </head>
 <body>
 <div id="cover">
-<div class="topbar"><div class="logo">◆ KAVIN.S</div><div class="nav"><span class="active">HOME</span><span>PROJECTS</span><span>SKILLS</span><span>CONTACT</span><span class="cert">CERTIFICATIONS</span></div></div>
+<div class="topbar"><div class="logo-single">◆ KAVIN.S</div><div class="nav-clean"><span class="active">HOME</span><span>PROJECTS</span><span>SKILLS</span><span>CONTACT</span><span class="cert-small">CERTIFICATIONS</span></div></div>
 <div class="hero">
 <div>
 <div class="badge">B.E CSE • Batch 2026-2030 • JNN Institute of Engineering</div>
-<div class="name-row"><div class="name">KAVIN S</div><div class="photo"><img src="kavin.jpg"></div></div>
+<div class="name-row"><div class="name">KAVIN S</div><div class="photo"><img src="kavin.jpg" alt="Kavin"></div></div>
 <div class="tags"><span>AI ENGINEERING</span>|<span>DATA SCIENCE</span>|<span>EMBEDDED SYSTEMS</span>|<span>SOFTWARE ENGINEERING</span></div>
 <div class="desc">Aspiring Software Engineer focused on AI, data-driven systems, embedded tech and real-world software.</div>
 <div class="btn" id="openBtn">Kavin portfolio open</div>
 </div>
-<div class="core"><h4>CORE FOCUS</h4><li>Website development</li><li>App development</li><li>Java, Python, C, C++</li><li>Software developer</li><div style="position:absolute;bottom:10px;left:14px;right:14px;font-size:8px;color:#5a7a8a;border-top:1px solid rgba(90,216,255,.15);padding-top:6px">Currently: Learning • Building Projects • Exploring Real-world Solutions</div></div>
+<div class="core"><h4>CORE FOCUS</h4><li>Website development</li><li>App development</li><li>Java, Python, C, C++</li><li>Software developer</li><div style="margin-top:22px;font-size:8px;color:#5a7a8a;border-top:1px solid rgba(90,216,255,.12);padding-top:8px">Currently: Learning • Building Projects • Exploring Real-world Solutions</div></div>
 </div>
 </div>
 <div id="main">
@@ -71,18 +72,19 @@ body{background:#000;overflow-x:hidden}
 <div class="card"><div class="perc">67%</div><div class="lab">11th Standard</div><div class="sma">Marks: 402 / 600<br>Percentage: 67%</div><div class="done">COMPLETED</div></div>
 <div class="card"><div class="perc">60.4%</div><div class="lab">12th Standard</div><div class="sma">Marks: 362 / 600<br>Percentage: 60.4%<br>COMPLETED - HSC</div></div>
 <div class="card"><div class="lab">B.E COMPUTER SCIENCE AND ENGINEERING</div><div class="sma">1st Year • 2026-2030<br>J.N.N Institute of Engineering, Tiruvallur<br>(Anna University) - Redhills, Chennai</div></div>
-<div class="title">CONTACT // VERIFIED LINKS</div>
-<div class="card"><div class="lab" style="color:#5ad8ff">Github - Verified</div><div class="sma">github.com/kavinsudhakar19-code</div></div>
-<div class="card"><div class="lab" style="color:#5ad8ff">LinkedIn - Verified</div><div class="sma">linkedin.com/in/kavin-s-934202450</div></div>
-<div class="card"><div class="lab" style="color:#5ad8ff">Instagram - Verified</div><div class="sma">instagram.com/kavin.s2421</div></div>
-<div class="card"><div class="lab" style="color:#5ad8ff">Email - Verified</div><div class="sma">kavin.sudhakar19@gmail.com</div></div>
-<div style="text-align:center;color:#333;font-size:7px;margin-top:18px">KAVIN S | 10th: 417 (83.4%) | 11th: 402 (67%) | 12th: 362 (60.4%) | B.E CSE JNN<br>SYSTEM STABLE • BUILDING THE FUTURE</div>
+<div class="title">CONTACT // VERIFIED LINKS - CLICK TO OPEN</div>
+<a href="https://github.com/kavinsudhakar19-code" target="_blank"><div class="card link"><div class="link-label">Github - Verified ↗</div><div class="sma">github.com/kavinsudhakar19-code</div></div></a>
+<a href="https://linkedin.com/in/kavin-s-934202450" target="_blank"><div class="card link"><div class="link-label">LinkedIn - Verified ↗</div><div class="sma">linkedin.com/in/kavin-s-934202450</div></div></a>
+<a href="https://instagram.com/kavin.s2421" target="_blank"><div class="card link"><div class="link-label">Instagram - Verified ↗</div><div class="sma">instagram.com/kavin.s2421</div></div></a>
+<a href="mailto:kavin.sudhakar19@gmail.com"><div class="card link"><div class="link-label">Email - Verified ↗</div><div class="sma">kavin.sudhakar19@gmail.com</div></div></a>
+<div style="text-align:center;color:#333;font-size:7px;margin-top:22px">KAVIN S | 10th: 417 (83.4%) | 11th: 402 (67%) | 12th: 362 (60.4%) | B.E CSE JNN<br>SYSTEM STABLE • BUILDING THE FUTURE</div>
 </div>
 <script>
-document.getElementById('openBtn').onclick=()=>{
+document.getElementById('openBtn').addEventListener('click',()=>{
 document.getElementById('cover').classList.add('hide');
-window.scrollTo(0,0);
-}
+document.body.style.overflow='auto';
+window.scrollTo({top:0,behavior:'smooth'});
+});
 </script>
 </body>
 </html>
